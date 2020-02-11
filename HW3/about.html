@@ -7,27 +7,64 @@
     <link rel="stylesheet" href="./css/main.css">
     <link rel="shortcut icon" href="./photos/coffee-cup.png" type="image/x-icon">
     <title>About Us</title>
-
+    <style>
+        footer {
+            position: absolute;
+            bottom: 0;
+            text-align: right;
+            background-color: #594063;
+            color: white;
+            width: 100vw;
+            height: 15vh;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-end;
+            justify-content: flex-end;
+        }
+        .social-media {
+            display: flex;
+            flex-wrap: wrap;
+            /* height: 25%; */
+            /* max-width: 50%; */
+            
+        }
+        .social-media img {
+            max-width: 100%;
+        }
+    </style>
 
 </head>
-<body>
+<body style="height: 125vh;">
     <div id="top">
         <img src="./photos/coffee-cup.png" alt="logo">
         <h1> MoTea </h1>
     </div>
     <div class="nav">
-        <div class="nav-item">
-            ABOUT
-        </div>
-        <div class="nav-item">
-            CONTACT
-        </div>
-        <div class="nav-item">
-            SERVICES
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><div></div><div></div></li>
+        </ul>
+    </div>
+    <!-- END OF NAV -->
+
+    <!-- <a href="./test.html" style="font-size: 3em;">TESTING</a> -->
+    <div class="content">
+        <img src="../HW3/photos/IMG_3781.JPG" alt="" class="tea-image">
+        <div class="tea-desc">
+            Lorem ipsum dolor sit amet.<br>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. A, <strong>consequatur</strong>!
         </div>
     </div>
-    <main>
-        test
-    </main>
+    <footer>
+        <span style="position: absolute; top: 0; right: 0;">&copy; 2020, Xavier Mojica </span>
+        <div class="social-media">
+            <img src="./photos/facebook.png" alt="facebook">
+            <img src="./photos/instagram.png" alt="instagram">
+            <img src="./photos/linked-in.png" alt="linked-in">
+        </div>
+    </footer>
 </body>
 </html>

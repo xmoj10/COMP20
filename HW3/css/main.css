@@ -49,34 +49,42 @@ h1 {
     font-size: 1.25em;
     font-weight: 900;
     height: 100%;
+    line-height: 100%;
     color: #EC96A4;
-    /* background-color: #cc4ea8; */
+    background-color: rgb(153, 136, 154);
     margin: 0 1em;
     /* word-wrap: normal; */
 }
 .nav .nav-item:hover {
     font-weight: 900;
     text-decoration: line-through;
-    transition-duration: 500ms;
     height: 100%;
-    color: #EC96A4;
-    /* background-color: #cc4ea8; */
-    margin: 0 1em;
-    /* word-wrap: normal; */
+    background-color: rgb(153, 136, 154);
+    color: rgb(197, 81, 100);
 }
-/*----------------------------------------------------*/
-.tea-1, .tea-2, .tea-3, .tea-4 {
-    background-color: #518995b2;
-    border: 2px solid #a5c8eab2;
-    /* display: flex; */
-    /* flex-wrap: wrap; */
-    /* height: 45vh; */
-}
+/*--------------------------------------------------*/
 
+.content {
+    margin: 1em 1em;
+    padding: 0.5em;
+    border-radius: 5%;
+    /* width: 85%; */
+    /* height: calc(25vh + 25vw); */
+    background-color: #EC96A4;
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* align-items: center; */
+    justify-content: center;
+}
 .tea-image {
     background-color: #b4dd85b2;
-    width: 50vh;
+    /* border-radius: 5%; */
+    /* width: 50%; */
+    height: 100%;
+    /* width: 45vh; */
 }
+
 .tea-image img {
     /* overflow: hidden; */
     height: 100%;
@@ -91,7 +99,46 @@ h1 {
     color: #bf5caa;
 }
 
+ul {
+    display: flex;
+    justify-content: flex-end;
+    list-style-type: none;
+}
+@media only screen and (min-width: 600px) {
+    li a {
+        font-size: 1em;
+        text-decoration: none;
+        display: block;
+        padding: 1em;
+        text-align: center;
+        color: #EC96A4;
+    }
+    li:last-child img {
+        display: none;
 
-main {
-    height: 115vh;
+        /* font-size: 1em;
+        text-decoration: none;
+        display: block;
+        padding: 1em;
+        text-align: center;
+        color: #EC96A4; */
+    }
+    li a:hover {
+        text-decoration: line-through;
+        color: white;
+    }
+}
+@media only screen and (max-width: 600px) {
+    li a {
+        display: none;
+    }
+    li img {
+        height: 100%;
+    }
+    li div {
+        width: 35px;
+        height: 5px;
+        background-color: black;
+        margin: 10% 10% 0 10%;
+    }
 }
