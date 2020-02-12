@@ -133,3 +133,15 @@ ul {
 
     }
 }
+
+
+/* CONTACT PAGE */
+.form-container {
+    background-color: rgb(241, 214, 214);
+    display: flex;
+    padding: 2em;
+    margin: 2em 3em;
+    border-radius: 4em;
+    box-shadow: 2px 5px 5px gray;
+    justify-content: center;
+}
