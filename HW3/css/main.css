@@ -47,7 +47,6 @@ h1 {
     background-color: rgb(204, 186, 207);
     position: sticky;
     top: 0;
-
     display: flex;
     justify-content: flex-end;
     width: 100%;
@@ -90,6 +89,12 @@ li a {
 li a:hover {
     text-decoration: line-through;
     color: white;
+}
+.nav div {
+    border-top: 5px solid black;
+    height: 8px;
+    margin-top: 3px;
+    margin-left: 5%;
 }
 /*--------------------------------------------------*/
 /* footer */
