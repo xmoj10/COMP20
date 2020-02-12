@@ -12,9 +12,8 @@
 }
 /*----------------------------------------------------*/
 body {
-    background-color:#f3e6ee;
+    background-color: rgb(198, 164, 198);
     position: relative;
-    min-height: 100vh;
 }
 main {
     display: flex;
@@ -96,8 +95,6 @@ li a:hover {
 /* footer */
 footer {
     text-align: right;
-    position: absolute;
-    bottom: 0;
     width: 100%;
     background-color: rgb(198, 164, 198);
 }
@@ -106,10 +103,6 @@ footer {
     position: relative;
     display: flex;
     justify-content: center;
-}
-.welcome {
-    height: 85vh;
-    border-radius: 20px;
 }
 .text-overlay {
     position: absolute;
