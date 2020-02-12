@@ -8,31 +8,24 @@
     <link rel="shortcut icon" href="./photos/coffee-cup.png" type="image/x-icon">
     <title>Home - MoTea</title>
     <style>
-        footer {
-            /* position: absolute;
-            bottom: 0; */
-            text-align: right;
-            background-color: #594063;
-            color: white;
-            width: 100vw;
-            /* height: 15vh;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: flex-end;
-            justify-content: flex-end; */
+        .welcome {
+            width: 100%;
+            position: relative;
         }
-        .social-media {
-            display: flex;
-            flex-wrap: wrap;
-            /* height: 25%; */
-            /* max-width: 50%; */
-            
-        }
-        .social-media img {
+        .welcome img {
             max-width: 100%;
         }
+        .welcome h2 {
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: rgb(190, 41, 65);
+            background-color: rgba(186, 182, 182, 0.465);
+            border-radius: 1em;
+            padding: 0.5em;
+        }
     </style>
-
 </head>
 <body>
     <div id="top">
@@ -47,5 +40,15 @@
         </ul>
     </div>
 
+    <div class="welcome">
+        <img src="./photos/social-tea.jpg" alt="social-tea">
+        <h2> Connecting Through Tea </h2>
+        <h3> Welcome! </h3>
+    </div>
+
+    <footer>
+        &copy; Xavier Mojica, 2020 <br>
+        Coding Powered By Dewick's Tea Selection
+    </footer>
 </body>
 </html>
