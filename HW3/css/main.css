@@ -134,14 +134,23 @@ ul {
     }
 }
 
-
+main {
+    display: flex;
+    justify-content: center;
+}
 /* CONTACT PAGE */
 .form-container {
     background-color: rgb(241, 214, 214);
     display: flex;
     padding: 2em;
-    margin: 2em 3em;
+    margin-top: 2em;
+    width: 65vw;
     border-radius: 4em;
     box-shadow: 2px 5px 5px gray;
     justify-content: center;
+}
+input[type=text], input[type=email] {
+    background-color: rgb(241, 238, 238);
+    resize: vertical;
+    width: 100%;
 }
