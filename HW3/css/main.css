@@ -18,14 +18,24 @@ body {
 main {
     display: flex;
     font-family: 'Assistant', sans-serif;
-    margin-top: 1em;
+
     justify-content: center;
     flex-wrap: wrap;
+    background-color:#f3e6ee;
+    height: 100vh;
 }
 h3 {
     display: block;
     width: 100%;
     text-align: center;
+}
+.sugg {
+    display: flex;
+    justify-items: center;
+    text-align: center;
+}
+.sugg h1 {
+    width: 100%;
 }
 /*---------------------------------------------------------------------------*/
 /* Navigation */
@@ -124,7 +134,55 @@ footer {
 
 /*---------------------------------------------------------------------------*/
 /* Services Page */
+.serv-main {
+    font-family: 'Assistant', sans-serif;
+    background-color:#f3e6ee;
+    padding: 2em;
+    display: flex;
+    flex-wrap: wrap;
+}
+.serv-info {
+    display: flex;
+    margin: 2em;
+    padding: 1.5em;
+    border-radius: 1.5rem;
+    background-color: rgb(204, 186, 207);
+    height: fit-content;
+    align-items: center;
+}
+.serv-info img {
+    margin-right: 1.5rem;
+}
+.serv-info p strong {
+    font-size: 1.5em;
+}
 
+@media only screen and (max-width: 800px) {
+    .serv-main {
+        background-color:#f3e6ee;
+        padding: 0.5em;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .serv-info {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0.5em;
+        padding: 0.5em;
+        background-color: rgb(204, 186, 207);
+        border-radius: 1.5rem;
+        height: fit-content;
+        justify-content: center;
+        align-content: center;
+    }
+    .serv-info img {
+        width: 75%;
+        margin-bottom: 1.5rem;
+    }
+    .serv-info p {
+        width: 100%;
+    }
+}
 /*---------------------------------------------------------------------------*/
 /* Contact Page */
 .form-container {
@@ -132,8 +190,8 @@ footer {
     background-color: rgb(241, 214, 214);
     display: flex;
     padding: 2em;
-    margin-top: 2em;
     width: 65vw;
+    margin-top: 1em;
     border-radius: 2em;
     box-shadow: 2px 5px 5px gray;
     justify-content: center;
