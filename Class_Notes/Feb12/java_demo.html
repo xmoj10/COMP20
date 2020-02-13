@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Demo</title>
+</head>
+<body>
+    <script language="javascript">
+        /*
+       for (i = 0; i < 10; i ++) {
+            n = Math.random() * 9 + 1;
+            n = Math.round(n);
+            document.write("The number is " + n + "<br>");
+       }*/
+
+       /* n = Math.random() * 3 + 1;
+       n = Math.round(n);
+       answer = prompt ("Enter a number from 1 to 4", "");
+       if (answer == n) {
+           document.write("You are correct!" + "<br>");
+       } else {
+           document.write("Sorry, try again!" + "<br>");
+       }*/
+    //    hotdog_price = 3.25;
+    //    fries_price = 2.00;
+    //    drink_price = 1.50;
+    //    hotdogs_wanted = prompt ("How many hot dogs would you like?", "");
+    //    fries_wanted = prompt ("How many fries would you like?", "");
+    //    drinks_wanted = prompt ("How many drinks would you like?", "");
+       
+    //    subtotal = hotdog_price*hotdogs_wanted + fries_price*fries_wanted + drink_price*drinks_wanted;
+
+    //    document.write("Subtotal: $" + subtotal + "<br>");
+    //    if (subtotal >= 20)
+    //         subtotal = subtotal * 0.9
+
+    //    sales_tax = subtotal * 0.0625;
+    //    sales_tax = sales_tax.toFixed(2);
+    //    document.write("MA Sales Tax: $" + sales_tax + "<br>");
+
+    //    total = Math.add(subtotal + sales_tax);
+    //    document.write("Total price: $" + total + "<br>");
+    //    total = total.toFixed(2);
+    //    document.write("Total price: $" + total + "<br>");
+       function calcTip() {
+           var checkAmount, tipAmount, TIP_PERCENT=0.17;
+           checkAmount = document.getElementById('amount').value;
+           checkAmount = parseInt(checkAmount);
+
+           tipAmount   = checkAmount * TIP_PERCENT;
+           tipAmount   = parseInt(tipAmount);
+
+           total = parseInt(tipAmount) + parseInt(checkAmount);
+           alert("total is " + total);
+           document.getElementById("result").value = "$" + total;
+       }
+    </script>
+
+    <form>
+        Amount <input type="text" id="amount"> <br>
+        Result <input type="text" id="result"> <br> <br>
+        <input type="submit" onClick="calcTip()" value="Submit">
+    </form>
+    <a href="./java_demo2.html">Java Demo 2</a>
+</body>
+</html>

@@ -84,8 +84,18 @@ ul {
     display: flex;
     justify-content: flex-end;
     list-style-type: none;
+    width: 50%;
 }
-
+@media only screen and (max-width: 800px) {
+    nav {
+        justify-content: flex-start;
+    }
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+}
 li a {
     font-size: 1em;
     text-decoration: none;
@@ -232,15 +242,6 @@ input[type=submit] {
     }
 }
 @media only screen and (max-width: 600px) {
-    li a {
-        display: none;
-    }
-    li div {
-        width: 35px;
-        height: 5px;
-        background-color: black;
-        margin: 10%;
-    }
     .text-overlay {
         font-size: 1em;
     }

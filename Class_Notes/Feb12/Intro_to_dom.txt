@@ -1,0 +1,12 @@
+Random number - Math.random()
+    returns a value between 0 - 1
+    should multiply to obtain larger number
+    ex. C++ typically seeds using time as it always changes
+
+    n = Math.random() * 9 + 1       ~ returns val between 0 - 10
+
+An event only executes code when an "event" occurs
+    ex. events = key click, a page loaded, a window resized
+
+document.form1.num1.value = can use with "with" function
+document.getElementByID   = if elem doesn't exist, returns NULL
