@@ -1,0 +1,7 @@
+Use event to process form data
+- input type = submit/reset wont display result..
+    need to use inputtype = button
+- .innerHTML to edit div/h1/block that writes to that block
+***** create javascript code that moves number over to next block/repeats, switching > to <
+
+
