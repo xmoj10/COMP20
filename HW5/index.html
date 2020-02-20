@@ -13,16 +13,22 @@
             num_hotdogs = parseInt(document.getElementById("hotdogs").value);
             if (num_hotdogs > 0) {
                 hotdog_total = num_hotdogs * hotdog_price;
+            } else {
+                num_hotdogs = 0;
             }
 
             num_fries = parseInt(document.getElementById("fries").value);
             if (num_fries > 0) {
                 fries_total = num_fries * fries_price;
+            } else {
+                num_fries = 0;
             }
             
             num_drinks = parseInt(document.getElementById("drinks").value);
             if (num_drinks > 0) {
                 drinks_total = num_drinks * drink_price;
+            } else {
+                num_drinks = 0;
             }
 
             document.getElementById("total").innerHTML  = "# Hotdogs: " + num_hotdogs + " at $" + hotdog_price.toFixed(2) + " is $" + hotdog_total.toFixed(2) + "<br>";
@@ -41,7 +47,7 @@
 </head>
 <body>
     <header>
-        <h1> Lisa's Hotdog Hut </h1>
+        <h1> Joe's Hotdog Hut </h1>
     </header>
     <nav>
         <ul>
@@ -54,7 +60,6 @@
     <main>
         <h2> 🥤 Order Form 🌭</h2>
         <div class="order">
-            <!-- <form style="background-color:red;"> -->
             <form>
                 How many hot dogs would you like? <input type="text" name="hotdogs" id="hotdogs" value=""> <br>
                 How many fries would you like? <input type="text" name="fries" id="fries" value=""> <br>
@@ -64,6 +69,5 @@
             <div id="total"></div>
         </div>
     </main> 
-    <!-- <script> calculateCost() </script> -->
 </body>
 </html>

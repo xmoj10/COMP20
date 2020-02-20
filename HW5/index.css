@@ -71,7 +71,6 @@ main {
     background-color: white;
     margin: 3% 5%;
     padding: 1em;
-    /* height: 70vh; */
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -86,7 +85,6 @@ main {
     width: 85%;
     height: 100%;
     margin-top: 5%;
-    /* background-image: url("./hotdogs.jpg"); */
 }
 .order h2 {
     text-align: center;
@@ -125,8 +123,6 @@ input {
 }
 #order-details {
     background-image: url("hotdogs.jpg");
-    /* background-size: 100% 100%; */
-    /* background-repeat: no-repeat; */
     text-align: center;
     width: 100%;
 }
