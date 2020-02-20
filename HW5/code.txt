@@ -1,0 +1,204 @@
+HTML code:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title> Order 🌭</title>
+    <script language="javascript">
+        function calculateCost() {
+            hotdog_price = 3.25, fries_price  = 2.00, drink_price  = 1.50;
+            hotdog_total = 0,    fries_total  = 0,    drinks_total = 0;
+
+            num_hotdogs = parseInt(document.getElementById("hotdogs").value);
+            if (num_hotdogs > 0) {
+                hotdog_total = num_hotdogs * hotdog_price;
+            } else {
+                num_hotdogs = 0;
+            }
+
+            num_fries = parseInt(document.getElementById("fries").value);
+            if (num_fries > 0) {
+                fries_total = num_fries * fries_price;
+            } else {
+                num_fries = 0;
+            }
+            
+            num_drinks = parseInt(document.getElementById("drinks").value);
+            if (num_drinks > 0) {
+                drinks_total = num_drinks * drink_price;
+            } else {
+                num_drinks = 0;
+            }
+
+            document.getElementById("total").innerHTML  = "# Hotdogs: " + num_hotdogs + " at $" + hotdog_price.toFixed(2) + " is $" + hotdog_total.toFixed(2) + "<br>";
+            document.getElementById("total").innerHTML += "# Fries: "   + num_fries   + " at $" + fries_price.toFixed(2)  + " is $" + fries_total.toFixed(2)  + "<br>";
+            document.getElementById("total").innerHTML += "# Drinks: "  + num_drinks  + " at $" + drink_price.toFixed(2)  + " is $" + drinks_total.toFixed(2) + "<br>";
+            subtotal = hotdog_total + fries_total + drinks_total;
+            if (subtotal > 20) {
+                document.getElementById("total").innerHTML += "You qualified for our 10% discount. <br>";
+                subtotal = 0.9*subtotal;
+            }
+            document.getElementById("total").innerHTML += "Subtotal: $" + subtotal.toFixed(2) + "<br>";
+            document.getElementById("total").innerHTML += "Meals Tax: $" + (0.0625*subtotal).toFixed(2) + "<br>";
+            document.getElementById("total").innerHTML += "<strong> Total: $" + (subtotal*1.0625).toFixed(2) + "</strong> <br>";
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1> Joe's Hotdog Hut </h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#"> Home     </a></li>
+            <li><a href="#"> About Us </a></li>
+            <li><a href="#"> Contact  </a></li>
+            <li><a href="#"> Order    </a></li>
+        </ul>
+    </nav>
+    <main>
+        <h2> 🥤 Order Form 🌭</h2>
+        <div class="order">
+            <form>
+                How many hot dogs would you like? <input type="text" name="hotdogs" id="hotdogs" value=""> <br>
+                How many fries would you like? <input type="text" name="fries" id="fries" value=""> <br>
+                How many drinks would you like? <input type="text" name="drinks" id="drinks" value=""> <br>
+                <input type="button" value="Submit" onclick="calculateCost()">
+            </form>
+            <div id="total"></div>
+        </div>
+    </main> 
+</body>
+</html>
+
+CSS stylesheet code:
+@import url('https://fonts.googleapis.com/css?family=Kalam|Patrick+Hand|Roboto&display=swap');
+/* 
+ Fonts used:
+ Patrick Hand
+ Kalam
+*/
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+body {
+    background-color: rgb(254,241,210);
+    position: relative;
+}
+/*===============================*/
+header {
+    background-color: rgb(60, 55, 55);
+    display: flex;
+    justify-content: center;
+}
+h1 {
+    padding-top: 0.5em;
+    color: white;
+    font-family: "Kalam", sans-serif;
+}
+/*===============================*/
+nav {
+    background-color: rgb(60, 55, 55);
+    position: sticky;
+    width: 100%;
+    top: 0;
+    font-family: "Kalam", sans-serif;
+    box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.438);
+}
+@media only screen and (max-width: 650px) {
+    ul {
+        display: flex;
+        justify-content: space-evenly;
+    }
+    li a {
+        color: purple;
+    }
+    main img {
+        display: none;
+    }
+}
+ul {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: flex-end; */
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+li a {
+    position: relative;
+    display: inline-block;
+    padding: 1.25em;
+    text-decoration: none;
+    color: white;
+
+}
+li a:hover {
+    color: rgb(198, 48, 18);
+    text-decoration: line-through;
+}
+/*===============================*/
+main {
+    background-color: white;
+    margin: 3% 5%;
+    padding: 1em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: baseline;
+    border-radius: 15px;
+    box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.438);
+    font-family: 'Roboto', sans-serif;
+}
+
+/*===============================*/
+.order {
+    width: 85%;
+    height: 100%;
+    margin-top: 5%;
+}
+.order h2 {
+    text-align: center;
+}
+
+#total {
+    width: 100%;
+    text-align: center;
+}
+form {
+    padding: 2em;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    border-radius: 10px;
+    width: 100%;
+    max-height: 100%;
+}
+input {
+    margin: 1em 0;
+}
+.order-form {
+    height: 50vh;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-items: center;
+}
+.order-prompt {
+    padding: 1em;
+    width: 100%;
+    text-align: center;
+    color: black;
+    font-size: 2em;
+}
+#order-details {
+    background-image: url("hotdogs.jpg");
+    text-align: center;
+    width: 100%;
+}
