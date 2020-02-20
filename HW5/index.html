@@ -5,6 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
     <title> Order 🌭</title>
+    <script language="javascript">
+        function calculateCost() {
+            hotdog_price = 3.25, fries_price  = 2.00, drink_price  = 1.50;
+            hotdog_total = 0,    fries_total  = 0,    drinks_total = 0;
+
+            num_hotdogs = parseInt(prompt("How many hotdogs?"));
+            if (num_hotdogs > 0) {
+                hotdog_total = num_hotdogs * hotdog_price;
+            }
+
+            num_fries = parseInt(prompt("How many fries?"));
+            if (num_fries > 0) {
+                fries_total = num_fries * fries_price;
+            }
+            
+            num_drinks = parseInt(prompt("How many sodas?"));
+            if (num_drinks > 0) {
+                drinks_total = num_drinks * drink_price;
+            }
+
+            document.getElementById("order-details").innerHTML += "# Hotdogs: " + num_hotdogs + " at " + hotdog_price + " is " + hotdog_total + "<br>";
+            document.getElementById("order-details").innerHTML += "# Fries: "   + num_fries   + " at " + fries_price  + " is " + fries_total  + "<br>";
+            document.getElementById("order-details").innerHTML += "# Drinks: "  + num_drinks  + " at " + drink_price + " is " + drinks_total + "<br>";
+            subtotal = hotdog_total + fries_total + drinks_total;
+            if (subtotal > 20) {
+                document.getElementById("order-details").innerHTML += "You qualified for our 10% discount. <br>";
+                subtotal = 0.9*subtotal;
+            }
+            document.getElementById("order-details").innerHTML += "Subtotal: $" + subtotal.toFixed(2) + "<br>";
+            document.getElementById("order-details").innerHTML += "Meals Tax: $" + (0.0625*subtotal).toFixed(2) + "<br>";
+            document.getElementById("order-details").innerHTML += "Total: $" + (subtotal*1.0625).toFixed(2) + "<br>";
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -18,54 +51,13 @@
             <li><a href="#"> Order    </a></li>
         </ul>
     </nav>
-    <div style="text-align: center;">
-    <script language="javascript">
-            hotdog_price = 3.25;
-            hotdog_total = 0;
-
-            fries_price  = 2.00;
-            fries_total  = 0;
-
-            drink_price  = 1.50;
-            drinks_total = 0;
-
-            
-            num_hotdogs = prompt("How many hotdogs?");
-            num_hotdogs = parseInt(num_hotdogs);
-            if (num_hotdogs > 0) {
-                hotdog_total = num_hotdogs * hotdog_price;
-            };
-
-            num_fries = prompt("How many fries?");
-            num_fries = parseInt(num_fries);
-            if (num_fries > 0) {
-                fries_total = num_fries * fries_price;
-            };
-            
-
-            num_drinks = prompt("How many sodas?");
-            num_drinks = parseInt(num_drinks);
-            if (num_drinks > 0) {
-                drinks_total = num_drinks * drink_price;
-            };
-
-            document.write("Welcome to Joe's Hotdogs! <br>");
-            document.write("# Hotdogs: " + num_hotdogs + " at " + hotdog_price + " is " + hotdog_total + "<br>");
-            document.write("# Fries: "   + num_fries   + " at " + fries_price  + " is " + fries_total  + "<br>");
-            document.write("# Drinks: "  + num_drinks  + " at " + drink_price + " is " + drinks_total + "<br>");
-            subtotal = hotdog_total + fries_total + drinks_total;
-            if (subtotal > 20) {
-                document.write("You qualified for our 10% discount. <br>");
-                subtotal = 0.9*subtotal;
-            }
-            document.write("Subtotal: $" + subtotal + "<br>");
-            document.write("Meals Tax: $" + 0.0625*subtotal + "<br>");
-            document.write("Total: $" + subtotal *1.0625 + "<br>");
-    </script>
+    <div class="order-form">
+        <h2 class="order-prompt">  Welcome to Lisa's Hotdog Hut! </h2>
+        <div id="order-details"></div>
     </div>
 
-<!-- <main>
-    <div class="order">
+    <!-- <main>
+        <div class="order">
             <h2>Order Form</h2>
             <form action="#" method="get">
                 How many hot dogs would you like? <input type="text" name="hotdogs" id="hotdogs"> <br>
@@ -79,5 +71,6 @@
             </div>
         </div>
     </main>  -->
+    <script> calculateCost() </script>
 </body>
 </html>
