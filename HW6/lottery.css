@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto+Mono|Poppins&display=swap");
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+body {
+    font-family: "Poppins", "Tahoma", sans-serif;
+    background-color: rgba(217, 217, 217, 0.454);
+}
+/*-----------------------------------------------------*/
+header {
+    background-color: rgb(81, 81, 215);
+    color: rgb(182, 234, 234);
+    font-size: 4em;
+    text-align: center;
+}
+/*-----------------------------------------------------*/
+nav {
+    background-color: rgb(81, 81, 215);
+    color: rgb(182, 234, 234);
+    display: flex;
+    justify-content: flex-end;
+    box-shadow: -3px 4px 4px rgba(0, 0, 0, 0.606);
+}
+ul {
+    list-style-type: none;
+}
+ul li {
+    display: inline-block;
+    margin: 1em;
+    font-size: 1.25em;
+}
+li a {
+    text-decoration: none;
+    color: rgb(182, 234, 234);
+    cursor: not-allowed;
+}
+li a:hover {
+    text-decoration: none;
+    color: rgba(182, 234, 234, 0.606);
+}
+/*-----------------------------------------------------*/
+.drawing {
+    margin-top: 2em;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+@media only screen and (max-width: 600px) {
+    .drawing {
+        margin-top: 2em;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    #ball {
+        width: 33%;
+    }
+}
+#ball {
+    background-color: rgb(231, 229, 229);
+    height: 5em;
+    width: 5em;
+    border: 2px solid black;
+    border-radius: 50%;
+    margin: 0.5em;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#ball:last-child {
+    background-color: rgb(251, 102, 102);
+}
+#ball div {
+    font-family: sans-serif;
+    font-size: 3em;
+    height: 1em;
+    width: 1em;
+}
+.button {
+    margin: 1em;
+    text-align: center;
+}
+.draw-button {
+    text-align: center;
+    padding: 1em 2em;
+    border: none;
+    background-color: rgb(130, 186, 229);
+    box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.413);
+    border-radius: 10px;
+
+}
+.draw-button:active {
+    background-color: rgb(209, 203, 203);
+    box-shadow: none;
+}
+/*-----------------------------------------------------*/
+form {
+    text-align: center;
+}
+
+#result {
+    display: none;
+    border-top: 2px solid black;
+    width: 75%;
+    margin: 1em auto;
+    text-align: center;
+    font-size: 2em;
+    color: black;
+}

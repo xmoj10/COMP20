@@ -1,0 +1,75 @@
+$ball: rgb(231, 227, 227);
+$powerball: rgb(253, 91, 91);
+$header-background: rgb(248, 223, 135); 
+$header-color: rgb(154, 150, 71);
+
+@import url("https://fonts.googleapis.com/css?family=Kalam|Patrick+Hand|Roboto|Poppins|Ubuntu&display=swap");
+* {
+    box-sizing: border-box;
+    margin: 0;
+    font-family: "Poppins";
+}2e
+body {
+    background-color: rgba(74, 78, 138, 0.185);
+}
+header {
+    text-align: center;
+
+}
+
+nav {
+    background-color: $header-background;
+    color: $header-color;
+
+    ul {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        
+        li {
+            list-style-type: none;
+            display: inline-block;
+            a {
+                position: relative;
+                padding: 1em;
+                background-color: $header-color;
+                text-decoration: none;
+            }
+            a:hover {
+                color: red;
+            }
+        }
+    }
+}
+.balls-container {
+    margin: 2em; 
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    @for $x from 1 to 6 {
+        .ball:nth-child(#{$x}), .powerball {
+            height: 6em;
+            width: 6em;
+            font-size: 1em;
+            font-weight: bolder;
+            margin: 0.5em;
+            border-radius: 50%;
+            border: 2px solid black;
+            box-shadow: 2px 2px 5px grey;
+            background-color: $ball;
+            position: relative;
+            span {
+                margin: 0;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+    }
+    .powerball {
+        background-color: $powerball;
+    }
+
+}

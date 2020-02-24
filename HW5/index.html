@@ -35,7 +35,7 @@
             document.getElementById("total").innerHTML += "# Fries: "   + num_fries   + " at $" + fries_price.toFixed(2)  + " is $" + fries_total.toFixed(2)  + "<br>";
             document.getElementById("total").innerHTML += "# Drinks: "  + num_drinks  + " at $" + drink_price.toFixed(2)  + " is $" + drinks_total.toFixed(2) + "<br>";
             subtotal = hotdog_total + fries_total + drinks_total;
-            if (subtotal > 20) {
+            if (subtotal >= 20) {
                 document.getElementById("total").innerHTML += "You qualified for our 10% discount. <br>";
                 subtotal = 0.9*subtotal;
             }

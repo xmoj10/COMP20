@@ -73,6 +73,7 @@ HTML code:
 </body>
 </html>
 
+***************************************************************************************************************
 CSS stylesheet code:
 @import url('https://fonts.googleapis.com/css?family=Kalam|Patrick+Hand|Roboto&display=swap');
 /* 

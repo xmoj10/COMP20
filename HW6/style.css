@@ -1,0 +1,183 @@
+@import url("https://fonts.googleapis.com/css?family=Kalam|Patrick+Hand|Roboto|Poppins|Ubuntu&display=swap");
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  font-family: "Poppins";
+}
+
+2e
+body {
+  background-color: rgba(74, 78, 138, 0.185);
+}
+
+header {
+  text-align: center;
+}
+
+nav {
+  background-color: #f8df87;
+  color: #9a9647;
+}
+
+nav ul {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+nav ul li {
+  list-style-type: none;
+  display: inline-block;
+}
+
+nav ul li a {
+  position: relative;
+  padding: 1em;
+  background-color: #9a9647;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  color: red;
+}
+
+.balls-container {
+  margin: 2em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.balls-container .ball:nth-child(1), .balls-container .powerball {
+  height: 6em;
+  width: 6em;
+  font-size: 1em;
+  font-weight: bolder;
+  margin: 0.5em;
+  border-radius: 50%;
+  border: 2px solid black;
+  -webkit-box-shadow: 2px 2px 5px grey;
+          box-shadow: 2px 2px 5px grey;
+  background-color: #e7e3e3;
+  position: relative;
+}
+
+.balls-container .ball:nth-child(1) span, .balls-container .powerball span {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.balls-container .ball:nth-child(2), .balls-container .powerball {
+  height: 6em;
+  width: 6em;
+  font-size: 1em;
+  font-weight: bolder;
+  margin: 0.5em;
+  border-radius: 50%;
+  border: 2px solid black;
+  -webkit-box-shadow: 2px 2px 5px grey;
+          box-shadow: 2px 2px 5px grey;
+  background-color: #e7e3e3;
+  position: relative;
+}
+
+.balls-container .ball:nth-child(2) span, .balls-container .powerball span {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.balls-container .ball:nth-child(3), .balls-container .powerball {
+  height: 6em;
+  width: 6em;
+  font-size: 1em;
+  font-weight: bolder;
+  margin: 0.5em;
+  border-radius: 50%;
+  border: 2px solid black;
+  -webkit-box-shadow: 2px 2px 5px grey;
+          box-shadow: 2px 2px 5px grey;
+  background-color: #e7e3e3;
+  position: relative;
+}
+
+.balls-container .ball:nth-child(3) span, .balls-container .powerball span {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.balls-container .ball:nth-child(4), .balls-container .powerball {
+  height: 6em;
+  width: 6em;
+  font-size: 1em;
+  font-weight: bolder;
+  margin: 0.5em;
+  border-radius: 50%;
+  border: 2px solid black;
+  -webkit-box-shadow: 2px 2px 5px grey;
+          box-shadow: 2px 2px 5px grey;
+  background-color: #e7e3e3;
+  position: relative;
+}
+
+.balls-container .ball:nth-child(4) span, .balls-container .powerball span {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.balls-container .ball:nth-child(5), .balls-container .powerball {
+  height: 6em;
+  width: 6em;
+  font-size: 1em;
+  font-weight: bolder;
+  margin: 0.5em;
+  border-radius: 50%;
+  border: 2px solid black;
+  -webkit-box-shadow: 2px 2px 5px grey;
+          box-shadow: 2px 2px 5px grey;
+  background-color: #e7e3e3;
+  position: relative;
+}
+
+.balls-container .ball:nth-child(5) span, .balls-container .powerball span {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.balls-container .powerball {
+  background-color: #fd5b5b;
+}
+/*# sourceMappingURL=style.css.map */
