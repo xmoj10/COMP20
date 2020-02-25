@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./images/counter.png" type="image/x-icon">
+    <link rel="stylesheet" href="./css/factors.css">
+    <title>isAmicable()</title>
+
+    <script language="javascript">
+        function isAmicable() {
+            num1 = document.getElementById("num1").value;
+            num2 = document.getElementById("num2").value;
+
+            outfile = document.getElementById("result");
+            /* check if factors of num1 sum to num 2 */
+            /* first: adds all factors to array if factors of number */
+            num1_factors = [];
+            for (i = 0; i < num1; i++) {
+                if (isFactor(i, num1)) {
+                    num1_factors[num1_factors.length] = i;
+                }
+            }
+            /* adds up all factors */
+            num1_sum_factors = addFactors(num1_factors);
+            
+            if (num1_sum_factors != num2) {
+                display(0, outfile, num1, num2);
+                /* return, no need to check other number*/
+            }
+            /*********************************/
+            /* check if factors of num2 sum to num 1 */
+            num2_factors = [];
+            for (i = 0; i < num2; i++) {
+                if (isFactor(i, num2)) {
+                    num2_factors[num2_factors.length] = i;
+                }
+            }
+            /* adds up all factors */
+            num2_sum_factors = addFactors(num2_factors);
+            console.log("num2_sum_factors = " + num2_sum_factors);
+
+            if (num2_sum_factors != num1) {
+                display(0, outfile, num1, num2);
+            } else {
+                display(1, outfile, num1, num2);
+            }
+        }
+        function display(bool, outfile, num1, num2) {
+            if (bool == 1) {
+                outfile.style.backgroundColor = "rgb(121, 239, 121)";
+                outfile.innerHTML = num1 + " and " + num2 + " are amicable!";
+            } else {
+                outfile.style.backgroundColor = "rgb(239, 135, 121)";
+                outfile.innerHTML = num1 + " and " + num2 + " are not amicable!"
+            }
+            document.getElementById("result").style.display = "block";
+        }
+        function isFactor(num, test_num) {
+            if ((test_num % num) == 0)
+                return 1;
+            
+            return 0;
+        }
+        /*function test_isFactor() {
+            var x = 3;
+            // should print out all multiples of 3
+            // between 0 and 30. i.e. 0, 3, 6, 9... 30
+            for (var y = 0; y <= 30; y++) {
+                if (isFactor(x, y))
+                     console.log(y);
+            }
+            window.alert("function done! check console");
+        }*/
+        function showFactors(array) {
+            loc = document.getElementById("factors");
+            loc.innerHTML = "Factors: ";
+            for (i = 0; i < array.length; i++)
+                loc.innerHTML += " " + array[i];
+        }
+        /*function test_showFactors() {
+            array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+            showFactors(array);
+        }*/
+        function addFactors(array) {
+            sum = 0;
+            for (i = 0; i < array.length; i++)
+                sum += array[i];
+            return sum;
+        }
+        /*function test_addFactors() {
+            //should sum to 20, works...
+            array = [1, 2, 3, 4, 5, 5];
+            sum = addFactors(array);
+            console.log(sum);
+            
+            //should sum to 650, works...
+            array = [120, 150, 180, 20, 60, 40, 80];
+            sum = addFactors(array);
+            console.log(sum);
+        }*/
+        function getFactors(num) {
+            array = [];
+            for (i = 1; i <= num; i++) {
+                if ((num % i) == 0)
+                    array[array.length] = i; 
+            }
+            return array;
+        }
+        /*function test_getFactors() {
+
+            //should log all factors of 20:
+            //1, 2, 4, 5, 10, 20
+            array = getFactors(20);
+            for (i = 0; i < array.length; i++)
+                console.log(array[i]);
+
+            console.log("***************")
+
+            //should log all factors of 7:
+            //1, 7
+            array = getFactors(7);
+            for (i = 0; i < array.length; i++)
+                console.log(array[i]);
+        }*/
+    </script>
+</head>
+<body>
+    <header>
+        <h1>
+            isAmicable( )
+        </h1>
+    </header>
+    <main>
+        <div class="form-container">
+        <form>
+            Number 1: <input id="num1" type="text">
+            Number 2: <input id="num2" type="text"> <br>
+            <!-- TESTER CODE: TEST IFFACTOR -->
+            <!-- <input type="button" value="test: isFactor" onclick="test_isFactor()"> -->
+            
+            <!-- TESTER CODE: TEST SHOWFACTORS -->
+            <!-- <input type="button" value="test: showFactors" onclick="test_showFactors()"> -->
+            
+            <!-- TESTER CODE: TEST ADDFACTORS -->
+            <!-- <input type="button" value="test: addFactors" onclick="test_addFactors()"> -->
+
+            <!-- TESTER CODE: TEST GETFACTORS -->
+            <!-- <input type="button" value="test: getFactors" onclick="test_getFactors()"> -->
+
+            <input type="button" value="check" onclick="isAmicable()">
+        </form>
+        </div>
+        <div id="result"></div>
+        <div id="factors"></div>
+    </main>
+</body>
+</html>
+<!--
+Part 2:  Amicable Numbers
+A factor is a number that divides evenly into another number.  A pair of numbers are called amicable if their factors (excluding themselves) add up to each other.
+
+For example, the numbers 220 and 284 are amicable, because the factors of 220 are [1, 2, 4, 5, 10, 11, 20, 22, 44, 55, 110] and sum to 284,while the factors of 284 are [1, 2, 4, 71, 142] and sum to 220.
+
+This lab will walk you through writing a program to check if two numbers are amicable.
+
+            Create a file with a form to enter two numbers. The form should also have a button.  When the button is clicked – you will read the numbers and report whether they are amicable.  Your first step is to set it such that when the button is clicked, call a function that reads and displays the numbers.
+            Create a function called isFactor that takes two input parameters: a number and a test number.  The function should return true if the test number divides evenly into the number (in other words it is a factor of the number).  Create some test code to test the function.
+            Comment out the test code.
+            Create a function called showFactors that takes an array as a parameter and displays all of its items. Create some test code to test the function.
+            Comment out the test code.
+            Create a function called addFactors that takes an array as a parameter and returns the sum of all of the elements . Test the function and then comment out the test code.
+            Create a function called getFactors that takes a number as a parameter and returns an array with all possible factors. Test the function and then comment out the test code.
+            Now create an event handler that reads the numbers from the form when the button is clicked and uses the functions you created to determine whether the numbers are amicable. Display the result.
+-->
