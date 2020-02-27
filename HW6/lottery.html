@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucky for Life</title>
+    <link rel="shortcut icon" href="./images/lottery.png" type="image/x-icon">
+    <link rel="stylesheet" href="./css/lottery.css">
+    <script language="javascript">
+        var lott_num = [];
+        var powerball;
+        function drawLottery() {
+            // create array and store numbers
+            for (var i = 0; i < 5; i++) {
+                lott_num[i]   = Math.floor(1 + (Math.random() * 48));
+            }
+            powerball = Math.floor(1 + (Math.random() * 18));
+            
+            // display numbers
+            display(lott_num, 0, powerball);
+
+            // sort numbers
+            lott_num.sort(function(a, b){return a - b});
+
+            // display again
+            display(lott_num, 1, powerball);
+        }
+        function display(num, row, powerball) {
+            width = 6;
+            for (var i = 0; i < 5; i++) {
+                div_num = parseInt(row*width + i);
+                var x = document.getElementById("num" + div_num);
+                x.innerHTML = num[i];
+            }
+            var index = row*width + 5;
+            var x = document.getElementById("num" + index);
+            x.innerHTML = powerball;
+        }
+        function reportWinnings() {
+            //read in values and store into array
+            var x = document.getElementById("user_vals").value;
+            var user_vals = x.split(" ", 5);
+            user_vals[user_vals.length] = document.getElementById("user_pb").value;
+
+            // Print numbers to screen
+            document.getElementById("result").innerHTML = " ";
+            for (var i = 0; i < user_vals.length; i++) {
+                document.getElementById("result").innerHTML += user_vals[i] + " ";
+            }
+
+            var num_matched = 0;
+            var winnings = " ";
+            // iterate through lottery numbers
+            for (i = 0; i < lott_num.length; i++) {
+                // iterate through user numbers
+                for (j = 0; j < user_vals.length; j++) {
+                    if (lott_num[i] == user_vals[j])
+                        num_matched += 1;
+                }
+                winnings += "<hr>";
+            }
+            
+            var winnings = "Sorry, no winnings";
+
+            // display winnings
+            if (user_vals[user_vals.length - 1] == powerball) {
+                switch(num_matched) {
+                    case 5:
+                        winnings = "$7,000 a WEEK for LIFE!";
+                        break;
+                    case 4:
+                        winnings = "$5,000";
+                        break;
+                    case 3:
+                        winnings = "$150";
+                        break;
+                    case 2:
+                        winnings = "$25";
+                        break;
+                    case 1:
+                        winnings = "$6";
+                        break;
+                    case 0:
+                        winnings = "$4";
+                        break;
+                }
+            } else {
+                switch(num_matched) {
+                    case 5:
+                        winnings = "$25,000 a YEAR for LIFE!";
+                        break;
+                    case 4:
+                        winnings = "$5,000";
+                        break;
+                    case 3:
+                        winnings = "$20";
+                        break;
+                    case 2:
+                        winnings = "$3";
+                        break;
+                }
+            }
+            document.getElementById("result").innerHTML = winnings;
+            document.getElementById("result").style.display = "block";
+            window.location.hash = "result";
+        }
+    </script>
+</head>
+<!------------------------------------------------------------>
+<body>
+    <!-- headings -->
+    <header>
+        Massachusetts Lottery
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#">Previous Winners</a></li>
+            <li><a href="#">Today's Numbers</a></li>
+            <li><a href="#">Claim Prize</a></li>
+        </ul>
+    </nav>
+
+    <!-- main content -->
+    <h2 style="text-align:center; margin-top: 1em;">Today's Numbers</h2>
+    <div class="drawing">
+        <div id="ball"><div id="num0"></div></div>
+        <div id="ball"><div id="num1"></div></div>
+        <div id="ball"><div id="num2"></div></div>
+        <div id="ball"><div id="num3"></div></div>
+        <div id="ball"><div id="num4"></div></div>
+        <div id="ball"><div id="num5"></div></div>
+    </div>
+    <div class="button">
+        <button onclick="drawLottery()" class="draw-button">
+            Draw Numbers
+        </button>
+    </div>
+    <br>
+    <hr>
+    <br>
+
+    <!-- Sorted Numbers -->
+    <h2 style="text-align:center">Today's Numbers <br> (In Sorted Order)</h2>
+    <div class="drawing">
+        <div id="ball"><div id="num6"></div></div>
+        <div id="ball"><div id="num7"></div></div>
+        <div id="ball"><div id="num8"></div></div>
+        <div id="ball"><div id="num9"></div></div>
+        <div id="ball"><div id="num10"></div></div>
+        <div id="ball"><div id="num11"></div></div>
+    </div>
+    <br>
+    <hr>
+    <br>
+    
+    <!-- Test Your Luck! -->
+    <h2 style="text-align:center">Test Your Luck!</h2>
+    <form>
+        <h3 style="text-align:center">Enter 4 numbers between 1 - 48</h2>
+        <input type="text" name="user_vals" required="required" id="user_vals"> <br>
+        
+        <h3 style="text-align:center">Enter 1 powerball number between 1 - 18</h2>
+        <input type="text" name="user_pb" required="required" id="user_pb"> <br>
+        
+        <input type="button" value="Submit" onclick="reportWinnings()">
+    </form>
+    <div id="result">
+        FILLER
+    </div>
+</body>
+</html>
