@@ -12,8 +12,13 @@
         function drawLottery() {
             // create array and store numbers
             for (var i = 0; i < 5; i++) {
-                lott_num[i]   = Math.floor(1 + (Math.random() * 48));
+                draw_num = Math.floor(1 + (Math.random() * 48));
+                while (isInArray(draw_num, lott_num)) {
+                    draw_num = Math.floor(1 + (Math.random() * 48));
+                }
+                lott_num[i]   = draw_num;
             }
+
             powerball = Math.floor(1 + (Math.random() * 18));
             
             // display numbers
@@ -24,6 +29,13 @@
 
             // display again
             display(lott_num, 1, powerball);
+        }
+        function isInArray(draw_num, lott_num) {
+            for (i = 0; i < lott_num.length; i++) {
+                if (draw_num == lott_num[i])
+                    return 1;
+            }
+            return 0;
         }
         function display(num, row, powerball) {
             width = 6;
