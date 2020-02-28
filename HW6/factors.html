@@ -17,6 +17,10 @@
                 display(0, outfile, num1, num2);
                 return; /* no need to check other numbers */
             }
+            if (num1 == num2) {
+                display(0, outfile, num1, num2);
+                return; /* no need to check other numbers */
+            }
             /* check if factors of num1 sum to num 2 */
             /* first: adds all factors to array if factors of number */
             num1_factors = [];
