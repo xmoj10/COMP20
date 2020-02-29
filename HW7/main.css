@@ -7,8 +7,8 @@
 }
 
 body {
-  background: -webkit-gradient(linear, left top, left bottom, from(#c8cdd8), to(#464159));
-  background: linear-gradient(#c8cdd8, #464159);
+  background: -webkit-gradient(linear, left top, left bottom, from(#5e9adb), to(#263d6d));
+  background: linear-gradient(#5e9adb, #263d6d);
   background-repeat: no-repeat;
   position: relative;
 }
@@ -17,8 +17,8 @@ h1 {
   font-family: "Montserrat", "Arial", sans-serif;
   font-size: 2.5em;
   padding: 0.5em;
-  background-color: #464159;
-  color: #8bbabb;
+  background-color: #263d6d;
+  color: #11a8ca;
   width: 100%;
   text-align: center;
 }
@@ -38,10 +38,10 @@ nav {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  background-color: #464159;
-  color: #8bbabb;
-  -webkit-box-shadow: 0px 6px 5px #2f2b3c;
-          box-shadow: 0px 6px 5px #2f2b3c;
+  background-color: #263d6d;
+  color: #11a8ca;
+  -webkit-box-shadow: 0px 6px 5px #192847;
+          box-shadow: 0px 6px 5px #192847;
 }
 
 nav ul {
@@ -57,13 +57,13 @@ nav ul li {
 
 nav ul li a {
   height: 100%;
-  color: #9da8a9;
+  color: #279ab4;
   text-decoration: none;
   cursor: not-allowed;
 }
 
 nav ul li a:hover {
-  color: #cbecdb;
+  color: #cff4fc;
 }
 
 /*****************************************************************************/
@@ -74,7 +74,7 @@ main {
 }
 
 form {
-  background-color: #e6e8ed;
+  background-color: #88b4e4;
   border-radius: 0.5em;
   padding: 1em 1em;
   display: -webkit-box;
@@ -126,8 +126,8 @@ table {
 
 /*****************************************************************************/
 footer {
-  background-color: #2f2b3c;
-  color: #ebf3f4;
+  background-color: #192847;
+  color: #80dff4;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

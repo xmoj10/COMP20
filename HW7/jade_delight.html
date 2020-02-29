@@ -6,6 +6,23 @@
 	<link rel="stylesheet" href="./main.css">
 	<link rel="shortcut icon" href="./icon.png" type="image/x-icon">
 	<title>Jade Delight</title>
+	<!-- my scripting -->
+	<script>
+		function printValues() {
+			// alert("VALUE CHANGED");
+			var x     = document.getElementsByTagName("select");
+			var costs = document.getElementsByTagName("cost");
+			for (i = 0; i < x.length; i++) {
+				costs[i].value = "2";
+			}
+
+			// var x = document.getElementsByTagName("select");
+			// for (i = 0; i < x.length; i++) {
+				// var s = x[i].value;
+				// document.writeln(s + "<br>");
+			// }
+		}
+	</script>
 </head>
 
 <body>
@@ -80,6 +97,37 @@
 					}
 					document.writeln(s);
 				</script>
+				<!-- script to insert onChange events  -->
+				<script>
+					var x = document.getElementsByTagName("select");
+					for (i = 0; i < x.length; i++) {
+						x[i].setAttribute("onchange", "printValues()");
+						console.log(x[i]);
+					}
+				</script>
+
+				<!-- FAUX TABLE INFO LOOKS LIKE -->
+				
+					<!-- <tr>
+						<td>
+							<select name="quan+i" size='1'>
+								<option> 0 </option>
+								<option> 1 </option>
+								<option> 2 </option>
+								<option> 3 </option>
+							</select>
+						</td>
+						<td>
+							menuItems[i].name
+						</td>
+						<td> 
+							$ menuItems[i].cost.toFixed(2) 
+						</td>
+						<td>
+							$<input type='text' name='cost'/>
+						</td>
+					</tr> -->
+				
 			</table>
 			<div class="total-cont">
 				<div class="total-outputs">
@@ -109,7 +157,7 @@
 	<script>
 		set_pricing();
 		function set_pricing() {
-			window.alert("hii");
+			// window.alert("hii");
 			for (i = 0; i < menuItems.length; i++) {
 				var x = document.getElementsByName("quan" + i);
 				console.log(x[0].value);

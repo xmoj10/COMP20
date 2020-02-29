@@ -1,8 +1,8 @@
 $theme: (
-    header: #464159,
-    body:   #c8cdd8,
-    text:   #8bbabb,
-    text-h: #c7f0db,
+    header: #263d6d,
+    body:   rgb(94, 154, 219),
+    text:   #11a8ca,
+    text-h: lighten(#00a8cc, 50%),
 );
 
 @import url('https://fonts.googleapis.com/css?family=Montserrat|Domine&display=swap');
@@ -61,7 +61,7 @@ nav {
             }
         }
     }
-    box-shadow: 0px 6px 5px darken(#464159, 10%);
+    box-shadow: 0px 6px 5px darken(map-get($theme, header), 10%);
 }
 
 /*****************************************************************************/
