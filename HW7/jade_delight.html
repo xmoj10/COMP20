@@ -9,13 +9,16 @@
 	<!-- my scripting -->
 	<script>
 		function printValues() {
-			// alert("VALUE CHANGED");
+			/* if values are edited, updates all*/
 			var x     = document.getElementsByTagName("select");
-			var costs = document.getElementsByTagName("cost");
+			var costs = document.getElementsByName("cost");
 			for (i = 0; i < x.length; i++) {
-				costs[i].value = "2";
+				var num   = x[i].value;
+				var total = num * menuItems[i].cost.toFixed(2);
+				costs[i].value = total.toFixed(2);
 			}
 
+			/* updates total costs according to price changes */
 			// var x = document.getElementsByTagName("select");
 			// for (i = 0; i < x.length; i++) {
 				// var s = x[i].value;
@@ -100,9 +103,11 @@
 				<!-- script to insert onChange events  -->
 				<script>
 					var x = document.getElementsByTagName("select");
+					var y = document.getElementsByName("cost");
 					for (i = 0; i < x.length; i++) {
 						x[i].setAttribute("onchange", "printValues()");
-						console.log(x[i]);
+						y[i].setAttribute("value", "");
+						// console.log(x[i]);
 					}
 				</script>
 
