@@ -79,10 +79,23 @@ form {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    
+    #required {
+        width: 100%;
+        text-align: center;
+        font-weight: 800;
+        color: rgb(236, 14, 14);
+    }
     .form-container{
         width: 100%;
         display: flex;
+        flex-wrap: wrap;
         justify-content: center;
+
+        .form-input {
+            width: 100%;
+            text-align: center;
+        }
     }
     .total-cont {
         width: 100%;
