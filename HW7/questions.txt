@@ -1,1 +1,6 @@
-url: 
+url: https://xmoj10.github.io/COMP20/HW7/jade_delight
+
+1. If you had an extra two weeks for this project, what feature(s) would you add.
+If I had two extra weeks for this project, I would add an interactive menu that lets users see the caloric intake of the food they are ordering. Also, I would add images of the food  on screens that could support those images. Another idea I had for this homework would be to have the option to see their food being processed (similar to how Dominos' lets their customers see the little man putting the pizza in the over, getting in a car, etc.
+
+2. The thing I like best about Javascript is how similar it is to C++/C. I think this has made the transition to learning a new programming language incredibly easier. I also like some features of Javascript such as being able to get elements by ID or even getting a whole array of elements by their name. I think it's incredibly helpful to see alerts/console logs that let you know where your code failed to process as well.
