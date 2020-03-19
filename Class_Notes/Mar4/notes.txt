@@ -1,0 +1,12 @@
+JQuery -> add on library for Javascript
+easier way to access special effects
+
+use un-minified version when coding,
+when deploying, use smallest one
+
+$() - with every function call
+
+JQuery mobile, helps look good on mobile
+
+
+$(document).ready - exception for onloading all functions
