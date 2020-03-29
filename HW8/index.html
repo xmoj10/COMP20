@@ -3,10 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="javascript" href="./JSON Practice/prac.json">
-    <title>Document</title>
+    <link rel="javascript" href="./playlist.js">
+    <link rel="stylesheet" href="./index.css">
+    <script src="playlist.js"></script>
+    <title>Xavier</title>
 </head>
 <body>
-    
+    <!-- Navigation -->
+    <header>
+        <img src="./logo.png" alt="logo" class="logo">
+        <h1>Mojúsica</h1>
+    </header>
+    <nav>
+        <ul>
+            <li>New Albums</li>
+            <li>Rising Artists</li>
+            <li>March's Top Charts</li>
+        </ul>
+    </nav>
+
+    <!-- Main -->
+    <main>
+        <div class="section">
+            <h2>Serialized Data</h2>
+            <div class="container">
+                <div id="serial_display"></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>User-Friendly Display</h2>
+            <div class="container">
+                <div id="friendly_display">
+
+                </div>
+            </div>
+        </div>
+
+        <!-- <h2>Music Filter</h2>
+        <div class="section">
+            <div id="serial_display"></div>
+        </div> -->
+
+
+        <!-- <div class="genre">
+            <h2> Serialized Data</h2>
+        </div> -->
+        
+        <div class="genre">
+            <h2> User-Friendly Data</h2>
+        </div>
+        <div id="filter"> </div>
+
+        <div class="genre">
+            <h2> Music Filter</h2>
+        </div>
+        <div style="width:100%; text-align: center;">
+        <select name="genre" id="genre" class="genre-selector" value="">
+            Genre
+            <option value="Pop">            Pop</option>
+            <option value="Spanish">        Spanish</option>
+            <option value="Reggaeton">      Reggaeton</option>
+            <option value="Latin Pop">      Latin Pop</option>
+            <option value="Rap & Hip-Hop">  Rap & Hip-Hop</option>
+        </select>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        TO ADD FOOTER
+    </footer>
+    <script lang="javascript">
+        //serialized data
+        serial_data = JSON.stringify(playlist);
+        document.getElementById("serial_display").innerHTML = serial_data;
+        
+        //friendly_display
+        friendly_display = document.getElementById("friendly_display");
+        for (i = 0; i < playlist.length; i++) {
+            title   = playlist[i].title + "<br>";
+            album   = playlist[i].album + "<br>";
+            artists = playlist[i].artist + "<br>";
+            genres  = playlist[i].genre + "<br>";
+            year    = playlist[i].year;
+            
+            // var artists_stringified;
+            //get artists
+            // for (j = 0; j < artists.length; j++) {
+            //     artists_stringified += artists[j] + "<br>";
+            // }
+
+            one_song = "<div class='friendly_songs'> <h2>" + title + "</h2>" + "<p>Album: " + album + "Artist(s): "+ artists + "Genre(s): "+ genres + "Year: "+ year + "</p> </div>";
+            friendly_display.innerHTML += one_song;
+        }
+
+        //user_friendly
+        for (i = 0; i < playlist.length; i++) {
+            currSong = "song" + i;
+            artwork  = playlist[i].artwork;
+            document.getElementById("filter").innerHTML += "<div id='"+ currSong + "' class='album-art'> <div class='overlay'>" + currSong + "</div></div>"
+            document.getElementById(currSong).style.backgroundImage = "url('./Album_Art/" + artwork + "')";
+        }
+    </script>
 </body>
 </html>
