@@ -1,0 +1,435 @@
+https://xmoj10.github.io/COMP20/HW8/
+HTML:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="javascript" href="./playlist.js">
+    <link rel="stylesheet" href="./index.css">
+    <script src="playlist.js"></script>
+    <title>Xavier</title>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <img src="./logo.png" alt="logo" class="logo">
+        <h1>Mojúsica</h1>
+    </header>
+
+    <!-- Main -->
+    <main>
+        <div class="section">
+            <h2>Serialized Data</h2>
+            <div class="container">
+                <div id="serial_display"></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>User-Friendly Display</h2>
+            <div class="container">
+                <div id="friendly_display"></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="music-filter">
+                Music Filter
+                <select name="genre-selected" id="selector" onchange="genreDisplay()">
+                    <option value="All">                All</option>
+                    <option value="Pop">                Pop</option>
+                    <option value="Español">            Español</option>
+                    <option value="Français">           Français</option>
+                    <option value="Reggaeton">          Reggaeton</option>
+                    <option value="Latin Pop">          Latin Pop</option>
+                    <option value="Latin Hip-Hop">      Latin Hip-Hop</option>
+                    <option value="Rap & Hip-Hop">      Rap & Hip-Hop</option>
+                    <option value="R&B">                R&B</option>
+                    <option value="Trap Music">         Trap Music</option>
+                    <option value="Dance & Electronic"> Dance & Electronic</option>
+
+                </select>
+            </h2>
+            <div class="container">
+                <div class="song-container">
+                    <div id="filter"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script lang="javascript">
+        //serialized data
+        serial_data = JSON.stringify(playlist);
+        document.getElementById("serial_display").innerHTML = serial_data;
+        
+        //friendly_display
+        friendly_display = document.getElementById("friendly_display");
+        for (i = 0; i < playlist.length; i++) {
+            title   = playlist[i].title + "<br>";
+            album   = playlist[i].album + "<br>";
+            artists = playlist[i].artist + "<br>";
+            genres  = playlist[i].genre + "<br>";
+            year    = playlist[i].year;
+
+            one_song = "<div class='friendly_songs'> <h2>" + title + "</h2>" + "<p>Album: " + album + "Artist(s): "+ artists + "Genre(s): "+ genres + "Year: "+ year + "</p> </div>";
+            friendly_display.innerHTML += one_song;
+
+            //filter display
+            currSong = "song" + i;
+            artwork  = playlist[i].artwork;
+            document.getElementById("filter").innerHTML += "<div id='"+ currSong + "' class='album-art'> <div class='overlay'>" + title + album + artists + "</div></div>";
+            document.getElementById(currSong).style.backgroundImage = "url('./Album_Art/" + artwork + "')";
+        }
+
+        //genre filtering
+        function genreDisplay() {
+            genre_selected = document.getElementById("selector").value;
+
+            document.getElementById("filter").innerHTML = "";
+            if (genre_selected == 'All') {
+                for (i = 0; i < playlist.length; i++) {
+                    //filter display
+                    currSong = "song" + i;
+                    artwork  = playlist[i].artwork;
+                    document.getElementById("filter").innerHTML += "<div id='"+ currSong + "' class='album-art'> <div class='overlay'>" + title + album + artists + "</div></div>";
+                    document.getElementById(currSong).style.backgroundImage = "url('./Album_Art/" + artwork + "')";
+                }
+            }
+            else {
+                var current_iter = 0;
+                //checking all songs in playlist for a matching genre
+                for (i = 0; i < playlist.length; i++) {
+                    genres = playlist[i].genre;
+                    for (j = 0; j < genres.length; j++) {
+                        // if genre matches, then display album
+                        if (genres[j] == genre_selected) {
+                            title   = playlist[i].title + "<br>";
+                            album   = playlist[i].album + "<br>";
+                            artists = playlist[i].artist + "<br>";
+                            artwork = playlist[i].artwork;
+                            document.getElementById("filter").innerHTML += "<div id='"+ current_iter + "' class='album-art'> <div class='overlay'>" + title + album + artists + "</div></div>";
+                            document.getElementById(current_iter).style.backgroundImage = "url('./Album_Art/" + artwork + "')";
+                            current_iter++;
+                            break;
+                        }
+                    }
+
+                }
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+CSS:
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css?family=Baloo+Chettan+2&display=swap");
+* {
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
+}
+
+body {
+  position: relative;
+}
+
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #2B2D42;
+  padding: 2em;
+}
+
+header .logo {
+  height: 2.5em;
+  margin-right: 1em;
+}
+
+header h1 {
+  font-size: 3.5em;
+  color: #EDF2F4;
+}
+
+h1 {
+  color: #EDF2F4;
+  font-family: 'Baloo Chettan 2', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  font-size: 2.5em;
+}
+
+nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: right;
+      -ms-flex-pack: right;
+          justify-content: right;
+  background-color: #2B2D42;
+  color: #EDF2F4;
+  font-family: 'Baloo Chettan 2', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.5em;
+  width: 100%;
+  display: sticky;
+}
+
+nav ul {
+  list-style-type: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: right;
+      -ms-flex-pack: right;
+          justify-content: right;
+}
+
+nav ul li {
+  display: block;
+  border: 1px solid black;
+  padding: 0.3em;
+}
+
+main {
+  background-color: #edf1f4;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.section {
+  position: relative;
+  width: 100%;
+}
+
+.section > h2 {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  -webkit-box-shadow: 0px 2px 5px black;
+          box-shadow: 0px 2px 5px black;
+}
+
+.container {
+  background: linear-gradient(160deg, #535780, #787ca7 40%, #cad3ea);
+  padding: 1em;
+  width: 100%;
+  text-align: center;
+  font-family: Tahoma;
+  line-height: 1.5em;
+  font-weight: 500;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #2B2D42;
+}
+
+.container p {
+  width: 30%;
+}
+
+.container .song-container {
+  max-width: 1000px;
+}
+
+#selector {
+  float: right;
+  width: 10%;
+}
+
+h2 {
+  padding: 1em 1em;
+  width: 100%;
+  background-color: #6f86c6;
+  color: #EDF2F4;
+  font-family: 'Baloo Chettan 2', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#filter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  width: 100%;
+}
+
+.album-art {
+  margin: 2em 2em;
+  height: 250px;
+  width: 250px;
+  border: 1px solid navy;
+  border-radius: 12px;
+  overflow: hidden;
+  background-size: 100% 100%;
+}
+
+.album-art .overlay {
+  display: none;
+}
+
+.album-art:hover .overlay {
+  display: block;
+  color: white;
+  background-color: #2B2D42A2;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+
+#friendly_display {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+#friendly_display .friendly_songs {
+  border: 2px solid black;
+  border-radius: 15px;
+  margin: 0.5em;
+  overflow: hidden;
+  background-color: #EDF2F4;
+  margin-bottom: 1em;
+  -webkit-box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.452);
+          box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.452);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 300px;
+}
+
+#friendly_display .friendly_songs h2 {
+  width: 100%;
+  padding: 0.75em;
+}
+
+#friendly_display .friendly_songs p {
+  width: 100%;
+  padding: 0.25em;
+}
+/*# sourceMappingURL=index.css.map */
+
+JSON:
+playlist = [
+  {
+    "artist": ["Rosalía"],
+    "title": "Dolerme",
+    "album": "Dolerme - Single",
+    "year": "2020",
+    "genre": ["Pop", "Español"],
+    "artwork": "Dolerme-artwork.jpg"
+  },
+
+  {
+    "artist": ["Lunay", "Daddy Yankee", "Bad Bunny"],
+    "title": "Soltera - Remix",
+    "album": "Épico",
+    "year": "2019",
+    "genre": ["Reggaeton", "Español"],
+    "artwork": "Soltera-artwork.jpg"
+  },
+  {
+    "artist": ["Pol Granch", "Natalia Lacunza"],
+    "title": "En Llamas",
+    "album": "En Llamas - Single",
+    "year": "2020",
+    "genre": ["Latin Pop", "Español"],
+    "artwork": "EnLlamas-artwork.jpg"
+  },
+  {
+    "artist": ["Don Patricio", "Cruz Cafuné"],
+    "title": "Contando Lunares",
+    "album": "La Dura Vida del Joven Rapero",
+    "year": "2019",
+    "genre": ["Latin Pop", "Español"],
+    "artwork": "ContandoLunares-artwork.jpg"
+  },
+
+  {
+    "artist": ["DELLAFUENTE", "C. Tengana", "Alizzz"],
+    "title": "París",
+    "album": "París - Single",
+    "year": "2019",
+    "genre": ["Latin Pop", "Español", "Rap & Hip-Hop"],
+    "artwork": "París-artwork.jpg"
+  },
+
+  {
+    "artist": ["C. Tengana", "Rosalía"],
+    "title": "Antes de Morirme",
+    "album": "Antes de Morirme - Single",
+    "year": "2016",
+    "genre": ["Trap Music", "Español", "Pop"],
+    "artwork": "AntesDeMorirme-artwork.jpg"
+  },
+
+  {
+    "artist": ["Stromae"],
+    "title": "tous les mêmes",
+    "album": "Racine Carrée",
+    "year": "2013",
+    "genre": ["Dance & Electronic", "Français"],
+    "artwork": "TousLesMêmes-artwork.jpg"
+  },
+
+  {
+    "artist": ["Nao"],
+    "title": "Bad Blood",
+    "album": "For All We Know",
+    "year": "2016",
+    "genre": ["R&B"],
+    "artwork": "BadBlood-artwork.jpg"
+  },
+
+  {
+    "artist": ["Paloma Mami"],
+    "title": "Fingías",
+    "album": "Fingías - Single",
+    "year": "2019",
+    "genre": ["Latin Hip-Hop", "Español", "Pop"],
+    "artwork": "Fingías-artwork.jpg"
+  },
+
+  {
+    "artist": ["Ana Guerra"],
+    "title": "Bajito",
+    "album": "Reflexión",
+    "year": "2019",
+    "genre": ["Pop", "Español"],
+    "artwork": "Bajito-artwork.jpg"
+  }
+]
