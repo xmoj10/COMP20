@@ -9,7 +9,7 @@ $colors: (
     color1: #2B2D42,
     color2: #8D99AE,
     color3: #EDF2F4,
-    color4: #EF233C,
+    color4: rgb(120, 111, 198),
     color5: #D90429
 );
 * {
@@ -25,10 +25,15 @@ header {
     justify-content: center;
     align-items: center;
     background-color: map-get($colors, color1);
-}
-.logo {
-    height: 2.5em;
-    margin-right: 1em;
+    padding: 2em;
+    .logo {
+        height: 2.5em;
+        margin-right: 1em;
+    }
+    h1 {
+        font-size: 3.5em;
+        color: map-get($colors, color3);
+    }
 }
 h1 {
     color: map-get($colors, color3);
@@ -68,9 +73,12 @@ main {
 }
 .section {
     position: relative;
+    width: 100%;
     >h2 {
         position: sticky;
         top: 0;
+        width: 100%;
+        box-shadow: 0px 2px 5px black;
     }
 }
 .container {
@@ -85,25 +93,32 @@ main {
     flex-wrap: wrap;
     justify-content: center;
     color: map-get($colors, color1);
-    // text-shadow: 1px 1px lighten(map-get($colors, color1), 50%);
     p {
         width: 30%;
     }
-}
-.genre {
-    padding: 1em 2em;
-    display: flex;
-    width: 100%;
-    background-color: lighten(map-get($colors, color4), 0%);
-    color: map-get($colors, color3);
-    font-family: 'Baloo Chettan 2', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    .genre-selector {
-        align-self: right;
-        color: red;
+    .song-container {
+        // border: 2px solid black;
+        max-width: 1000px;
     }
 }
+#selector {
+    float: right;
+    width: 10%;
+}
+// .genre {
+//     padding: 1em 2em;
+//     display: flex;
+//     width: 100%;
+//     background-color: lighten(map-get($colors, color4), 0%);
+//     color: map-get($colors, color3);
+//     font-family: 'Baloo Chettan 2', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+//     .genre-selector {
+//         align-self: right;
+//         color: red;
+//     }
+// }
 h2 {
-    padding: 1em 2em;
+    padding: 1em 1em;
     width: 100%;
     background-color: lighten(map-get($colors, color4), 0%);
     color: map-get($colors, color3);
@@ -114,7 +129,7 @@ h2 {
     flex-wrap: wrap;
     justify-content: space-around;
     align-content: center;
-    max-width: 1000px;
+    width: 100%;
 }
 .album-art {
     margin: 2em 2em;
@@ -123,7 +138,7 @@ h2 {
     border: 1px solid navy;
     border-radius: 12px;
     overflow: hidden;
-
+    // position: relative;
     background-size: 100% 100%;
     .overlay {
         display: none;
@@ -132,9 +147,16 @@ h2 {
 .album-art:hover {
     .overlay {
         display: block;
-        background-color: rgba(203, 80, 80, 0.527);
+        color: white;
+        background-color: #2B2D42A2;
+        text-align: center;
         width: 100%;
         height: 100%;
+        // margin: 0;
+        // position: absolute;
+        // top: 50%;
+        // left: 50%;
+        // transform: translate(-50%, -50%);
     }
 }
 
@@ -144,31 +166,27 @@ h2 {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    max-width: 1024px;
-}
-
-.friendly_songs {
-    border: 2px solid black;
-    border-radius: 15px;
-    margin: 0.5em;
-    overflow: hidden;
-    background-color: map-get($colors, color3);
-    margin-bottom: 1em;
-    box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.452);
-    display: flex;
-    flex-wrap: wrap;
-
-    width: 300px;
-    // align-items: flex-end;
-
-    h2 {
-        width: 100%;
-        // color: red;w
-        padding: 0.75em;
-    }
-    p {
-        width: 100%;
-        padding: 0.25em;
+    .friendly_songs {
+        border: 2px solid black;
+        border-radius: 15px;
+        margin: 0.5em;
+        overflow: hidden;
+        background-color: map-get($colors, color3);
+        margin-bottom: 1em;
+        box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.452);
+        display: flex;
+        flex-wrap: wrap;
+        
+        width: 300px;
+        
+        h2 {
+            width: 100%;
+            padding: 0.75em;
+        }
+        p {
+            width: 100%;
+            padding: 0.25em;
+        }
     }
 }
 /*

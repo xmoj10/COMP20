@@ -22,11 +22,17 @@ header {
       -ms-flex-align: center;
           align-items: center;
   background-color: #2B2D42;
+  padding: 2em;
 }
 
-.logo {
+header .logo {
   height: 2.5em;
   margin-right: 1em;
+}
+
+header h1 {
+  font-size: 3.5em;
+  color: #EDF2F4;
 }
 
 h1 {
@@ -84,16 +90,20 @@ main {
 
 .section {
   position: relative;
+  width: 100%;
 }
 
 .section > h2 {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
+  width: 100%;
+  -webkit-box-shadow: 0px 2px 5px black;
+          box-shadow: 0px 2px 5px black;
 }
 
 .container {
-  background: linear-gradient(160deg, #535780, #787ca7 40%, #f89aa5);
+  background: linear-gradient(160deg, #535780, #787ca7 40%, #cecaea);
   padding: 1em;
   width: 100%;
   text-align: center;
@@ -115,28 +125,19 @@ main {
   width: 30%;
 }
 
-.genre {
-  padding: 1em 2em;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-  background-color: #ef233c;
-  color: #EDF2F4;
-  font-family: 'Baloo Chettan 2', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+.container .song-container {
+  max-width: 1000px;
 }
 
-.genre .genre-selector {
-  -ms-flex-item-align: right;
-      -ms-grid-row-align: right;
-      align-self: right;
-  color: red;
+#selector {
+  float: right;
+  width: 10%;
 }
 
 h2 {
-  padding: 1em 2em;
+  padding: 1em 1em;
   width: 100%;
-  background-color: #ef233c;
+  background-color: #786fc6;
   color: #EDF2F4;
   font-family: 'Baloo Chettan 2', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -151,7 +152,7 @@ h2 {
       justify-content: space-around;
   -ms-flex-line-pack: center;
       align-content: center;
-  max-width: 1000px;
+  width: 100%;
 }
 
 .album-art {
@@ -170,7 +171,9 @@ h2 {
 
 .album-art:hover .overlay {
   display: block;
-  background-color: rgba(203, 80, 80, 0.527);
+  color: white;
+  background-color: #2B2D42A2;
+  text-align: center;
   width: 100%;
   height: 100%;
 }
@@ -183,10 +186,9 @@ h2 {
       flex-wrap: wrap;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  max-width: 1024px;
 }
 
-.friendly_songs {
+#friendly_display .friendly_songs {
   border: 2px solid black;
   border-radius: 15px;
   margin: 0.5em;
@@ -203,12 +205,12 @@ h2 {
   width: 300px;
 }
 
-.friendly_songs h2 {
+#friendly_display .friendly_songs h2 {
   width: 100%;
   padding: 0.75em;
 }
 
-.friendly_songs p {
+#friendly_display .friendly_songs p {
   width: 100%;
   padding: 0.25em;
 }
