@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat|Domine&display=swap");
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  font-family: "Montserrat", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+main {
+  height: 100vh;
+  background-color: #f5cfac;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  border-radius: 15px;
+  height: 65%;
+  width: 65%;
+  background-color: #fae2cc;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main .mini-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+}
+
+main #results {
+  background-color: inherit;
+  max-width: 100%;
+}
+
+input[type=text] {
+  background-color: rgba(216, 216, 216, 0.782);
+}
+
+button[type=submit] {
+  background-color: grey;
+}
+/*# sourceMappingURL=index.css.map */

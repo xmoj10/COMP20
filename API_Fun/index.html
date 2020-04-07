@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weatherica</title>
+    <link rel="stylesheet" href="index.css">
+    <script>
+		function loadData() {
+            city_name = document.getElementById("city_name").value;
+			request = new XMLHttpRequest();
+            request.open("GET", 
+                         "https://api.openweathermap.org/data/2.5/weather?q=" + city_name + "&appid=cccac004a1c9f7aa7f99c8a9976d1512",
+                         true);
+            
+			request.onreadystatechange = function() {
+				if (request.readyState == 4 && request.status == 200) {
+                    Data = request.responseText;
+                    console.log(Data);
+                    console.log(Data["base"]);
+                    
+				}
+				else if (request.readyState == 4 && request.status != 200) {
+                    alert("Please enter a valid city name.");
+                    return;
+                };
+            }
+            request.send();	
+            // printResults(request.responseText);
+        }
+        function printResults(Data) {
+            document.getElementById("results").innerHTML = "";
+            document.getElementById("results").innerHTML += Data;
+            // console.log(Data);
+            // console.log(Data.coor);
+            
+            // document.getElementById("results").innerHTML += Data;
+            // document.getElementById("results").innerHTML += Data;
+
+        }
+    </script>
+    
+</head>
+<body>
+    <main>
+        <div class="container">
+            <div class="mini-container">
+                <input type="text" name="city_name" id="city_name">
+            </div>
+
+            <div class="mini-container">
+                <button type="submit" onclick="loadData()">
+                    Click Me
+                </button>
+            </div>
+            <div id="results"></div>
+        </div>
+    </main>
+</body>
+</html>
+{
+    "coord":{
+        "lon":-71.06,"lat":42.36
+    },
+    "weather":[
+        {
+            "id":802,
+            "main":"Clouds",
+            "description":"scattered clouds",
+            "icon":"03n"
+        }
+    ],
+    "base":"stations",
+    "main":{
+        "temp":281.38,
+        "feels_like":277.23,
+        "temp_min":278.71,
+        "temp_max":284.26,
+        "pressure":1012,
+        "humidity":21},
+        "wind":{
+            "speed":1.29,"deg":264
+        },
+        "clouds":{
+            "all":26
+        },
+        "dt":1586222400,
+        "sys":{
+            "type":1,
+            "id":4967,
+            "country":"US",
+            "sunrise":1586168228,
+            "sunset":1586214926
+        },
+        "timezone":-14400,
+        "id":4930956,
+        "name":"Boston",
+        "cod":200
+    }

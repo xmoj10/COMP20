@@ -1,0 +1,46 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat|Domine&display=swap");
+$theme: (
+    color1: black,
+    color2: red
+);
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    font-family: "Montserrat", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+main {
+    height: 100vh;
+    background-color: rgb(245, 207, 172);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        border-radius: 15px;
+        height: 65%;
+        width: 65%;
+        background-color: rgb(250, 226, 204);
+        align-items: center;
+    }
+    .mini-container {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        // border: 1px solid blue;
+    }
+    #results {
+        background-color: inherit;
+        // height: fit-content;
+        max-width: 100%;
+        // border: 1px solid red;
+    }
+}
+input[type=text] {
+    background-color: rgba(216, 216, 216, 0.782);
+}
+button[type=submit] {
+    background-color: grey;
+}
