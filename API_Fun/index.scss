@@ -9,9 +9,17 @@ $theme: (
     margin: 0;
     font-family: "Montserrat", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-main {
-    height: 100vh;
+html {
     background-color: rgb(245, 207, 172);
+}
+h1 {
+    padding-top: 1em;
+    width: 100%;
+    text-align: center;
+}
+main {
+    // height: 100vh;
+    padding-top: 1em;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -24,12 +32,16 @@ main {
         width: 65%;
         background-color: rgb(250, 226, 204);
         align-items: center;
+        h2 {
+            width: 100%;
+        }
     }
     .mini-container {
         display: flex;
+        flex-wrap: wrap;
         justify-content: center;
         width: 100%;
-        // border: 1px solid blue;
+        padding: 1em 1em;
     }
     #results {
         background-color: inherit;

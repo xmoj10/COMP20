@@ -6,9 +6,18 @@
   font-family: "Montserrat", 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-main {
-  height: 100vh;
+html {
   background-color: #f5cfac;
+}
+
+h1 {
+  padding-top: 1em;
+  width: 100%;
+  text-align: center;
+}
+
+main {
+  padding-top: 1em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -37,14 +46,21 @@ main .container {
           align-items: center;
 }
 
+main .container h2 {
+  width: 100%;
+}
+
 main .mini-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   width: 100%;
+  padding: 1em 1em;
 }
 
 main #results {

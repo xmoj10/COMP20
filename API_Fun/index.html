@@ -17,20 +17,20 @@
 				if (request.readyState == 4 && request.status == 200) {
                     Data = request.responseText;
                     console.log(Data);
-                    console.log(Data["base"]);
+                    document.getElementById("results").innerHTML = "";
+                    document.getElementById("results").innerHTML += Data;
                     
 				}
 				else if (request.readyState == 4 && request.status != 200) {
                     alert("Please enter a valid city name.");
-                    return;
                 };
             }
             request.send();	
-            // printResults(request.responseText);
         }
         function printResults(Data) {
             document.getElementById("results").innerHTML = "";
             document.getElementById("results").innerHTML += Data;
+            document.getElementById("results").innerHTML += "HII";
             // console.log(Data);
             // console.log(Data.coor);
             
@@ -42,10 +42,11 @@
     
 </head>
 <body>
+    <h1>Get Your Current Weather! </h1>
     <main>
         <div class="container">
             <div class="mini-container">
-                <input type="text" name="city_name" id="city_name">
+                <input type="text" name="city_name" id="city_name" placeholder="Enter a city...">
             </div>
 
             <div class="mini-container">
@@ -53,12 +54,51 @@
                     Click Me
                 </button>
             </div>
-            <div id="results"></div>
+            <div class="mini-container">
+                <p id="results"></p>
+            </div>
+        </div>
+    </main>
+
+    <main>
+        <div class="container">
+            <div class="mini-container">
+                <h2>Description</h2>
+                <p>An API to display current weather conditions at a particular city</p>
+            </div>
+
+            <div class="mini-container">
+                <h2>Citation</h2>
+                <p>Thank you to <a href="https://openweathermap.org/">openweathermap</a> for the public API!</p>
+            </div>
+            <div class="mini-container">
+                <h2>Options</h2>
+                <p>I chose to use the current weather conditions of a particular city for my API request. <br>
+                   Some options I chose included printing out the current temperature, "feels-like" temperature,
+                   pressure, and humidity. <br><br>
+                    
+                   Other options for the API included: <br>
+                    <ul>
+                        <li>an Hourly Forecast</li>
+                        <li>a One Call API</li>
+                        <li>16 day / daily forecast</li>
+                        <li>Climate forecast for 30 days</li>
+                        <li>Bulk Downloading</li>
+                        <li>5 day / 3 hour forecast</li>
+                    </ul>
+                </p>
+            </div>
+            
+            <div class="mini-container">
+                <h2>2 Applications of API</h2>
+                <p> give two applications where this API would be helpful.
+                </p>
+            </div>
         </div>
     </main>
 </body>
 </html>
-{
+<!-- {
     "coord":{
         "lon":-71.06,"lat":42.36
     },
@@ -96,4 +136,4 @@
         "id":4930956,
         "name":"Boston",
         "cod":200
-    }
+    } -->
