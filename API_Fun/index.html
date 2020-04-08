@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weatherica</title>
+    <title>WeatherNow</title>
     <link rel="stylesheet" href="index.css">
     <script>
 		function loadData() {
@@ -19,7 +19,6 @@
                     console.log(Data);
                     document.getElementById("results").innerHTML = "";
                     document.getElementById("results").innerHTML += Data;
-                    
 				}
 				else if (request.readyState == 4 && request.status != 200) {
                     alert("Please enter a valid city name.");
@@ -51,7 +50,7 @@
 
             <div class="mini-container">
                 <button type="submit" onclick="loadData()">
-                    Click Me
+                    Get Current Weather
                 </button>
             </div>
             <div class="mini-container">
@@ -91,7 +90,11 @@
             
             <div class="mini-container">
                 <h2>2 Applications of API</h2>
-                <p> give two applications where this API would be helpful.
+                <p> 
+                    <ul>
+                        <li>Outfit Of the Day (OOTD) App, suggesting what outfit user could wear for the day. Example: if the temperature < 32 --> wear a heavy coat, else temperature < 50 --> wear a light coat, else --> a shirt is just okay!</li>    
+                        <li>Basic Weather Widget that gives user hourly notifications of current weather conditions. Example: conditions could be presented on a startup page for a web browser</li>
+                </ul>
                 </p>
             </div>
         </div>
