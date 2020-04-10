@@ -16,9 +16,14 @@
 			request.onreadystatechange = function() {
 				if (request.readyState == 4 && request.status == 200) {
                     Data = request.responseText;
+                    Data = JSON.parse(Data);
                     console.log(Data);
                     document.getElementById("results").innerHTML = "";
-                    document.getElementById("results").innerHTML += Data;
+                    document.getElementById("results").innerHTML += "Description: " + Data.weather[0].description + "<br>";
+                    document.getElementById("results").innerHTML += "Temperature <em>(f)</em>: " + ((Data.main.temp - 273.15) * 9/5 + 32).toFixed(0) + " degrees <br>";
+                    document.getElementById("results").innerHTML += "Feels-like: " + ((Data.main.feels_like - 273.15) * 9/5 + 32).toFixed(0) + " degrees <br>";
+                    document.getElementById("results").innerHTML += "Pressure: " + (Data.main.pressure).toFixed(0) + " units <br>";
+                    document.getElementById("results").innerHTML += "Humidity: " + (Data.main.humidity).toFixed(0) + " units <br>";
 				}
 				else if (request.readyState == 4 && request.status != 200) {
                     alert("Please enter a valid city name.");
@@ -27,9 +32,12 @@
             request.send();	
         }
         function printResults(Data) {
+            Data = JSON.parse(Data);
             document.getElementById("results").innerHTML = "";
-            document.getElementById("results").innerHTML += Data;
-            document.getElementById("results").innerHTML += "HII";
+            document.getElementById("results").innerHTML += Data.coord;
+            console.log(Data);
+            
+            // document.getElementById("results").innerHTML += "HII";
             // console.log(Data);
             // console.log(Data.coor);
             
